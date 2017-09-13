@@ -3,4 +3,4 @@
 *.midi
 *.mp3
 *.wav
-/saved_song/*
+/saved_songs/*
