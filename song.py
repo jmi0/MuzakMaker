@@ -60,6 +60,7 @@ class Song(object):
 		self.high = h
 		
 	def __lowTrack(self, midi):
+		# temporary algo, will be handled differently
 		progression = []
 		note = self.low[7]
 		for i in range(0, (self.beats / (self.timesig))):
@@ -70,11 +71,13 @@ class Song(object):
 		
 	
 	def __midTrack(self, midi):
+		# temporary algo, will be handled differently
 		for i in range(0, self.beats * 2):
     			midi.addNote(0, 1, self.__getRandomNote(self.mid), .5*i, self.__getRandomDur(), self.__getRandomVol())
 		
 	
 	def __highTrack(self, midi):
+		# temporary algo, will be handled differently
 		for i in range(0, self.beats * 2):
 			time = self.__getRandomTime()
 			if i % self.__getRandomDur() - 2 == 0:
