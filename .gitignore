@@ -1,0 +1,6 @@
+*.pyc
+*.mid
+*.midi
+*.mp3
+*.wav
+/saved_song/*
