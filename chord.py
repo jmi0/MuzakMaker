@@ -1,14 +1,18 @@
 
 class Chord(object):
 	
-	def __init__(key, root):
+	def __init__(key, root, notes):
 		self.key = key
 		self.root = root
-		self.voice1 = None
-		self.voice2 = None
-		self.voice3 = None
-		self.voice4 = None
+		self.notes = notes # 1 through 4
+		self.voices = []
 		self.__setVoices()	
 
 	def __setVoices(self):
-		pass
+		self.voices.insert(0, self.root)
+		for i in range(0, self.notes):
+			# TODO
+			pass
+
+	def getVoices(self):
+		return self.voices

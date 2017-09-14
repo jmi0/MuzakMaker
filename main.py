@@ -10,7 +10,7 @@ song = Song("shmuzak", 140, stayInKey(8), 4, 30, 4, "ambient chill", midi)
 
 # start method is one and only public method for Song class
 
-song.start()
+song.create()
 
 
 

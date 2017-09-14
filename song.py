@@ -1,4 +1,5 @@
 import random
+from structure import Structure
 
 class Song(object):
         
@@ -22,6 +23,7 @@ class Song(object):
                 print (self.title, self.tempo, self.key, self.measures, self.mood)
 
 	def __addTrack(self):
+		# TODO
 		pass
 
 	def __getRandomNote(self, array):
@@ -88,9 +90,8 @@ class Song(object):
 			
 		
 	
-	def start(self):
+	def create(self):
 		self.__setRanges()
-		# initialize midi tracks
 		self.midi.addTempo(3, 0, self.tempo)
 		
 		self.__lowTrack(self.midi)
