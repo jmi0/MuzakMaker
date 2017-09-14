@@ -2,13 +2,14 @@ import random
 
 class Song(object):
         
-	def __init__(self, title, tempo, key, timesig, measures, mood, midi):
+	def __init__(self, title, tempo, key, timesig, measures, sections, mood, midi):
                 self.title = title
                 self.tempo = tempo
                 self.key = key
 		self.timesig = timesig
                 self.measures = measures
-		self.beats = self.measures * self.timesig
+		self.sections = sections
+		self.beats = self.timesig * self.measures
                 self.mood = mood
 		self.midi = midi
 		
@@ -16,9 +17,6 @@ class Song(object):
 		self.mid = None
 		self.high = None		
 		self.__setRanges()
-
-        def updateTempo(self, tempo):
-                self.tempo = tempo
 
         def showSong(self):
                 print (self.title, self.tempo, self.key, self.measures, self.mood)
