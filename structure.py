@@ -1,5 +1,4 @@
 import random
-from chord import Chord
 
 class Structure(object):
 	

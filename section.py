@@ -26,7 +26,6 @@ class Section(object):
 		self.__buildRange()
 		self.__addRoots()
 		
-	
 	def __addChordDurs(self):
 		full = 0
 		dur = self.measures + 1 # to invoke while 
@@ -36,19 +35,9 @@ class Section(object):
 			dur = random.choice(self._chordDurations)
 			if dur > (self.measures - full):
 				while dur > (self.measures - full):
-					'''
-					if self.measures - full <= 2 and dur > 2: # optimization
-						self._chordDurations.remove(dur)
-					'''
 					dur = random.choice(self._chordDurations)
 			full += dur
 			self.chordDurMap.append(dur)
-			
-			'''
-			if (dur < 1) and (float(full).is_integer()): # dont allow too many off-beat changes
-				self._chordDurations.remove(dur)
-				dur = self.measures - full + 1 # reset dur to invoke while
-			'''
 
 	def __addRoots(self):
 		if self.startOnRoot is True:
@@ -70,7 +59,7 @@ class Section(object):
 
 
 # test
-#intro = Section(stayInKey(1), 4, 30, True)
+#intro = Section(stayInKey(1), 4, 4, True)
 #print intro.getSection()
 
 
