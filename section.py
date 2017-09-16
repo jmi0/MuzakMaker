@@ -1,6 +1,6 @@
 import random
-from createScale import stayInKey
-
+#from createScale import stayInKey
+from Chord import chord
 
 class Section(object):
 		
