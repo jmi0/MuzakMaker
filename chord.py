@@ -1,7 +1,7 @@
 
 class Chord(object):
 	
-	def __init__(key, root, notes):
+	def __init__(self, key, root, notes):
 		self.key = key
 		self.root = root
 		self.notes = notes # 1 through 4

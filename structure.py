@@ -2,7 +2,7 @@ from chord import Chord
 
 class Structure(object):
 	
-	def __init__(timesig, measures, beats, key, sections, feeling):
+	def __init__(self, timesig, measures, beats, key, sections, feeling):
 		self.timesig = timesig
 		self.measures = measures
 		self.beats = beats

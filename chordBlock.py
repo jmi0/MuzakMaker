@@ -1,7 +1,7 @@
 
 class ChordBlock(object):
 
-        def __init__(chord, beats, style):
+        def __init__(self, chord, beats, style):
                 self.chord = chord
                 self.beats = beats
                 self.style = style
