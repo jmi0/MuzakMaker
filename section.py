@@ -6,7 +6,7 @@ class Section(object):
 		
 	def __init__(self, key, timesig, measures, startOnRoot):
 		self._chordDurations = [.25, .5, .75, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 4, 4, 4, 6, 8, 8] # by measure
-		##############################################################
+		#####################################
 		
 		self.key = key
 		self.timesig = timesig
@@ -40,8 +40,7 @@ class Section(object):
 			full += dur
 			self.chordDurMap.append(dur)
 		
-			if (dur < 1) and (float(full).is_integer()):
-				print dur
+			if (dur < 1) and (float(full).is_integer()): # dont allow too many off-beat changes
 				self._chordDurations.remove(dur)
 				dur = self.measures - full + 1 # reset dur to invoke while
 	
@@ -65,8 +64,8 @@ class Section(object):
 
 
 # test
-intro = Section(stayInKey(1), 3, 8, True)
-print intro.getSection()
+#intro = Section(stayInKey(1), 4, 8, True)
+#print intro.getSection()
 
 
 
