@@ -5,7 +5,7 @@ from createScale import stayInKey
 class Section(object):
 		
 	def __init__(self, key, timesig, measures, startOnRoot):
-		self._chordDurations = [.25, .5, .75, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 6, 8, 8] # by measure
+		self._chordDurations = [.25, .5, .75, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 3, 4, 4, 4, 6, 8, 8] # by measure
 		##############################################################
 		
 		self.key = key
@@ -39,7 +39,11 @@ class Section(object):
 				dur = random.choice(self._chordDurations)
 			full += dur
 			self.chordDurMap.append(dur)
-	
+		
+			if (dur < 1) and (float(full).is_integer()):
+				print dur
+				self._chordDurations.remove(dur)
+				dur = self.measures - full + 1 # reset dur to invoke while
 	
 	def __addRoots(self):
 		if self.startOnRoot is True:
@@ -61,8 +65,8 @@ class Section(object):
 
 
 # test
-#intro = Section(stayInKey(1), 4, 8, True)
-#print intro.getSection()
+intro = Section(stayInKey(1), 3, 8, True)
+print intro.getSection()
 
 
 
