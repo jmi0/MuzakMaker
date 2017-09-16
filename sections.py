@@ -1,21 +1,20 @@
 import random
 from createScale import stayInKey
 
+
 class Section(object):
 		
-	def __init__(self, key, timesig, measures):
-		# will eventually be input parameters for decision making v
-		self._sectionDurations = [4, 8, 12, 16] # by measure
-		self._chordDurations = [1, 2, 2, 3, 4, 4, 4, 6, 8] # by measure
+	def __init__(self, key, timesig, measures, startOnRoot):
+		self._chordDurations = [.25, .5, .75, 1, 1, 1, 1, 2, 2, 2, 2, 3, 4, 4, 4, 6, 8, 8] # by measure
 		##############################################################
 		
 		self.key = key
 		self.timesig = timesig
 		self.measures = measures
-		self.keyRoot = self.key[0] + (3*7)
+		self.startOnRoot = startOnRoot
+		self.keyRoot = self.key[0] + (5*7)
 		self.range = []
 		
-		self.sectionDuration = random.choice(self._sectionDurations)
 		self.chordDurMap = []
 		self.rootsMap = []
 		
@@ -30,33 +29,41 @@ class Section(object):
 	
 	def __addChordDurs(self):
 		full = 0
-		dur = self.sectionDuration + 1 # just to start while 
+		dur = self.measures + 1 # just to start while 
 		
 		# add a random chord duration to chordDurMap until full
-		while full < self.sectionDuration:
-			while dur > (self.sectionDuration - full):
+		while full < self.measures:
+			print self._chordDurations
+			while dur > (self.measures - full):
+				if self.measures - full <= 2 and dur > 2: # optimization
+					self._chordDurations.remove(dur)
 				dur = random.choice(self._chordDurations)
-			
-			full = full + dur
+			full += dur
 			self.chordDurMap.append(dur)
 	
+	
 	def __addRoots(self):
-		for i in range(0, len(self.chordDurMap)):
+		if self.startOnRoot is True:
+			self.rootsMap.insert(0, self.keyRoot)
+			start = 1
+		else:
+			start = 0
+		for i in range(start, len(self.chordDurMap)):
 			self.rootsMap.append(random.choice(self.range))
 
 	
 	def __buildRange(self):
-		for i in range(self.keyRoot - 7, self.keyRoot + 7):	
+		for i in range(self.keyRoot - 6, self.keyRoot + 6):	
 			self.range.append(i)
 
 
 	def getSection(self):
-		return self.sectionDuration, self.chordDurMap, self.rootsMap
+		return self.keyRoot, self.measures, self.chordDurMap, self.rootsMap
 
 
 # test
-#intro = Section(stayInKey(1), 4, 60)
-#print intro.getSection()
+intro = Section(stayInKey(1), 4, 8, True)
+print intro.getSection()
 
 
 
