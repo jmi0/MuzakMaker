@@ -29,21 +29,27 @@ class Section(object):
 	
 	def __addChordDurs(self):
 		full = 0
-		dur = self.measures + 1 # just to start while 
+		dur = self.measures + 1 # to invoke while 
 		
 		# add a random chord duration to chordDurMap until full
 		while full < self.measures:
-			while dur > (self.measures - full):
-				if self.measures - full <= 2 and dur > 2: # optimization
-					self._chordDurations.remove(dur)
-				dur = random.choice(self._chordDurations)
+			dur = random.choice(self._chordDurations)
+			if dur > (self.measures - full):
+				while dur > (self.measures - full):
+					'''
+					if self.measures - full <= 2 and dur > 2: # optimization
+						self._chordDurations.remove(dur)
+					'''
+					dur = random.choice(self._chordDurations)
 			full += dur
 			self.chordDurMap.append(dur)
-		
+			
+			'''
 			if (dur < 1) and (float(full).is_integer()): # dont allow too many off-beat changes
 				self._chordDurations.remove(dur)
 				dur = self.measures - full + 1 # reset dur to invoke while
-	
+			'''
+
 	def __addRoots(self):
 		if self.startOnRoot is True:
 			self.rootsMap.insert(0, self.keyRoot)
@@ -64,7 +70,7 @@ class Section(object):
 
 
 # test
-#intro = Section(stayInKey(1), 4, 8, True)
+#intro = Section(stayInKey(1), 4, 30, True)
 #print intro.getSection()
 
 
