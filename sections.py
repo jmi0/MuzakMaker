@@ -33,7 +33,6 @@ class Section(object):
 		
 		# add a random chord duration to chordDurMap until full
 		while full < self.measures:
-			print self._chordDurations
 			while dur > (self.measures - full):
 				if self.measures - full <= 2 and dur > 2: # optimization
 					self._chordDurations.remove(dur)
@@ -62,8 +61,8 @@ class Section(object):
 
 
 # test
-intro = Section(stayInKey(1), 4, 8, True)
-print intro.getSection()
+#intro = Section(stayInKey(1), 4, 8, True)
+#print intro.getSection()
 
 
 
