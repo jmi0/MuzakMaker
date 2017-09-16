@@ -16,3 +16,22 @@ class Chord(object):
 
 	def getVoices(self):
 		return self.voices
+	
+
+	def getThird(self):
+		pass		
+
+	def getFourth(self):
+		pass
+
+	def getFifth(self):
+		pass
+	
+	def getSixth(self):
+		pass
+
+	def getSeventh(self):
+		pass
+
+	def getOct(self):
+		pass	
