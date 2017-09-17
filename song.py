@@ -1,4 +1,5 @@
 import random
+from createScale import stayInKey
 from structure import Structure
 
 class Song(object):
@@ -91,13 +92,55 @@ class Song(object):
 		
 	
 	def create(self):
-		self.__setRanges()
-		self.midi.addTempo(3, 0, self.tempo)
+		self.midi.addTempo(0, 0, self.tempo)
 		
+		struct = Structure(self.key, self.timesig, self.measures)
+		
+		print '\n\n\n'  
+		print struct.getStructure
+	
+		secs = struct.getSections()
+		currentbeat = 1
+		for i in range(0, len(secs)):
+        		print secs[i]
+        		for j in range(0, len(secs[i].getSection()) - 1):
+                		chords = secs[i].getSection()[0]
+                		for k in range(0, len(chords)):
+                        		print chords[k].getVoices()
+                		print secs[i].getSection()[1]
+
+		'''
+		self.__setRanges()
+
 		self.__lowTrack(self.midi)
 		self.__midTrack(self.midi)
 		self.__highTrack(self.midi)		
+		'''
+
+		
 		
 
 		with open(self.title + ".mid", "wb") as output_file:
     			self.midi.writeFile(output_file)
+
+
+
+
+
+# test
+'''
+struct = Structure(stayInKey(1), 4, 60)
+	
+print '\n\n\n'	
+print struct.getStructure
+
+secs = struct.getSections()
+
+for i in range(0, len(secs)):
+	print secs[i]
+	for j in range(0, len(secs[i].getSection()) - 1):
+		chords = secs[i].getSection()[0]
+		for k in range(0, len(chords)):
+			print chords[k].getVoices()
+		print secs[i].getSection()[1]
+'''

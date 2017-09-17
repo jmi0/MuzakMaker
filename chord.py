@@ -1,7 +1,11 @@
+import random
+#from createScale import stayInKey
 
 class Chord(object):
 	
 	def __init__(self, key, root, notes):
+		self.triad = [2, 4]
+		self.intervals = [3, 5, 6]
 		self.key = key
 		self.root = root
 		self.notes = notes # 1 through 4
@@ -9,30 +13,22 @@ class Chord(object):
 		self.__setVoices()	
 
 	def __setVoices(self):
-		self.voices.insert(0, self.root)
+		self.voices.append(self.root)
 		for i in range(0, self.notes - 1):
-			if i == 0:
-				self.voices.append(self.getThird())
-			elif i == 1:
-				self.voices.append(self.getFifth())	
-
+			if i < 2:
+				self.voices.append(self.root + self.triad[i])
+			else:
+				interval = random.choice(self.intervals)
+				self.voices.append(self.root + interval)
+				self.intervals.remove(interval)
+				
+	
 	def getVoices(self):
 		return self.voices
 
-	def getThird(self):
-		return self.root + 2	
 
-	def getFourth(self):
-		return self.root + 3
+# test
+#chord = Chord(stayInKey(0), 0, 4)
+#print chord.getVoices()
 
-	def getFifth(self):
-		return self.root + 4
-	
-	def getSixth(self):
-		return self.root + 5
 
-	def getSeventh(self):
-		return self.root + 6
-
-	def getOct(self):
-		pass	
