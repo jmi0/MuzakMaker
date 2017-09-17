@@ -45,7 +45,10 @@ class Structure(object):
 		return self.measures, self.uniqueMeasures, self.structure
 	
 	def getSections(self):
-		return self.sections
+		first = self.sections
+		last = self.sections
+		secs = first + last 
+		return secs
 
 # test
 #struct = Structure(stayInKey(0), 4, 60)
