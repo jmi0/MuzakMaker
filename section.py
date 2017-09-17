@@ -1,6 +1,6 @@
 import random
 from createScale import stayInKey
-#from chord import Chord
+from chord import Chord
 
 class Section(object):
 		
@@ -16,6 +16,7 @@ class Section(object):
 		
 		self.chordDurMap = []
 		self.rootsMap = []
+		self.chords = []
 		
 		self.__buildSection()
 
@@ -52,11 +53,14 @@ class Section(object):
 		for i in range(self.keyRoot - 6, self.keyRoot + 6):	
 			self.range.append(i)
 
-
+	def __buildChords(self):
+		for i in range(0, self.rootsMap):
+			self.chords.append(Chord(self.key, self,rootsMap[i], random.randrange(1, 5)))
+	
 	def getSection(self):
 		return self.keyRoot, self.measures, self.chordDurMap, self.rootsMap
 
-
+	
 # test
 #intro = Section(stayInKey(1), 4, 4, True)
 #print intro.getSection()

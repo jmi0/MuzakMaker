@@ -10,28 +10,29 @@ class Chord(object):
 
 	def __setVoices(self):
 		self.voices.insert(0, self.root)
-		for i in range(0, self.notes):
-			# TODO
-			pass
+		for i in range(0, self.notes - 1):
+			if i == 0:
+				self.voices.append(self.getThird())
+			elif i == 1:
+				self.voices.append(self.getFifth())	
 
 	def getVoices(self):
 		return self.voices
-	
 
 	def getThird(self):
-		pass		
+		return self.root + 2	
 
 	def getFourth(self):
-		pass
+		return self.root + 3
 
 	def getFifth(self):
-		pass
+		return self.root + 4
 	
 	def getSixth(self):
-		pass
+		return self.root + 5
 
 	def getSeventh(self):
-		pass
+		return self.root + 6
 
 	def getOct(self):
 		pass	
