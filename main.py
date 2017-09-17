@@ -8,7 +8,7 @@ midi = MIDIFile(1, adjust_origin=True)
 
 song = Song("shmuzak", 120, stayInKey(8), 4, 60, 4, "ambient chill", midi)
 
-# start method is one and only public method for Song class
+# create method is one and only public method for Song class
 
 song.create()
 
