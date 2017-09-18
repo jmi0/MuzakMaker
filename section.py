@@ -11,7 +11,7 @@ class Section(object):
 		self.timesig = timesig
 		self.measures = measures
 		self.startOnRoot = startOnRoot
-		self.keyRoot = self.key[0] + (5*7)
+		self.keyRoot = self.key[3*7]
 		self.range = []
 		
 		self.chordDurMap = []
@@ -52,7 +52,7 @@ class Section(object):
 	
 	def __buildRange(self):
 		for i in range(self.keyRoot - 6, self.keyRoot + 6):	
-			self.range.append(i)
+			self.range.append(self.key[i])
 
 	def __buildChords(self):
 		for i in range(0, len(self.rootsMap)):

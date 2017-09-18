@@ -16,10 +16,12 @@ class Chord(object):
 		self.voices.append(self.root)
 		for i in range(0, self.notes - 1):
 			if i < 2:
-				self.voices.append(self.root + self.triad[i])
+				#print self.root
+				#print self.key[self.key.index(self.root) + self.triad[i]]
+				self.voices.append(self.key[self.key.index(self.root) + self.triad[i]])
 			else:
 				interval = random.choice(self.intervals)
-				self.voices.append(self.root + interval)
+				self.voices.append(self.key[self.key.index(self.root) + interval])
 				self.intervals.remove(interval)
 				
 	
