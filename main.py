@@ -6,7 +6,7 @@ midi = MIDIFile(1, adjust_origin=True)
 
 # Song object; Song(title, tempo, key(0-12), time signature(beats only), # of measures, vocabulary (for future), midi object)
 
-song = Song("shmuzak", 100, stayInKey(4), 4, 140, 4, "ambient chill", midi)
+song = Song("shmuzak", 110, stayInKey(2), 4, 100, 4, "test", midi)
 
 # create method is one and only public method for Song class
 

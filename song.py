@@ -30,8 +30,9 @@ class Song(object):
 		
 		struct = Structure(self.key, self.timesig, self.measures)
 		
-		print '\n\n\n'  
-		print struct.getStructure
+		print '\n' 
+		print self.title + '...\n' 
+		#print struct.getStructure
 	
 		secs = struct.getSections()
 		currentbeat = 1
@@ -41,9 +42,11 @@ class Song(object):
                 	chords = secs[i].getSection()[0]
                 	chordDurs = secs[i].getSection()[1]
 			#print chords[j].getVoices()
+			print 'chord durations:  '
 			print chordDurs
 			for j in range(0, len(chords)):
-                        	print chords[j].getVoices()
+                        	print 'chord voices:'
+				print chords[j].getVoices()
                 		for k in range(0, len(chords[j].getVoices())):
 					#print chords[j].getVoices()[k]
 					self.midi.addNote(0, 0, chords[j].getVoices()[k], currentbeat, chordDurs[j], self.__getRandomVol())
@@ -53,7 +56,8 @@ class Song(object):
 					self.midi.addNote(0, 0, self.key[self.key.index(random.choice(chords[j].getVoices())) - 7], currentbeat, chordDurs[j], self.__getRandomVol())
 				currentbeat += chordDurs[j]
 
-		
+			print '\n'
+
 		with open(self.title + ".mid", "wb") as output_file:
     			self.midi.writeFile(output_file)
 
