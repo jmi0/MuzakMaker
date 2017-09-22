@@ -1,6 +1,7 @@
 import random
 from createScale import stayInKey
 from structure import Structure
+from chordBlock import ChordBlock
 
 class Song(object):
         

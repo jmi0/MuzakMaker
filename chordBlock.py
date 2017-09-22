@@ -1,9 +1,10 @@
+import random
 
 class ChordBlock(object):
 
-        def __init__(self, chord, beats, style):
+        def __init__(self, chord, dur, style):
                 self.chord = chord
-                self.beats = beats
+		self.dur = dur
                 self.style = style
                 self.block = []
                 self.__buildBlock()
