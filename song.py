@@ -62,11 +62,11 @@ class Song(object):
 			
                 		for k in range(0, len(chords[j].getVoices())):
 					#print chords[j].getVoices()[k]
-					print "current beat: "
-					print currentbeat
-					print "total: "
-					print self.beats
-					if self.beats - currentbeat <= 1:
+					#print "current beat: "
+					#print currentbeat
+					#print "total: "
+					#print struct.getLength()
+					if struct.getLength() - currentbeat <= 1:
 						dur = self.timesig*2
 					else:
 						dur = chordDurs[j]

@@ -5,7 +5,7 @@ from chord import Chord
 class Section(object):
 		
 	def __init__(self, key, timesig, measures, startOnRoot):
-		self._chordDurations = [.25, .5, .75, 1, 1, 2, 2, 3, 4, 6, 8] # by measure
+		self._chordDurations = [.25, .5, .75, 1, 1, 2, 2, 3, 4, 4, 4, 6, 8] # by measure
 		
 		self.key = key
 		self.timesig = timesig
@@ -61,12 +61,19 @@ class Section(object):
 	def getSection(self):
 		return self.chords, self.chordDurMap
 
+	def getSectionDur(self):
+		count = 0
+		for i in range(0, len(self.chordDurMap)):
+			count += self.chordDurMap[i]
+		return count
+
 	
 # test
 '''
 intro = Section(stayInKey(1), 4, 4, True)
 chords = intro.getSection()[0]
 chordDur = intro.getSection()[1]
+print intro.getSectionDur()
 print chordDur
 
 for i in range(0, len(chords)):
