@@ -1,4 +1,5 @@
 *.pyc
 *.mid
 *.midi
+clearcache.sh
 /saved_songs/*
