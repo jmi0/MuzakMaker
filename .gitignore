@@ -3,3 +3,4 @@
 *.midi
 clearcache.sh
 /saved_songs/*
+/venv

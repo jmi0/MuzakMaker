@@ -1,6 +1,6 @@
 from midiutil.MidiFile import MIDIFile
-from song import Song
-from createScale import stayInKey
+from src.song import Song
+from src.createScale import stayInKey
 
 midi = MIDIFile(1, adjust_origin=True)
 
