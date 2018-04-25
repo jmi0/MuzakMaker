@@ -1,6 +1,6 @@
 *.pyc
 *.mid
 *.midi
-clearcache.sh
+.DS_Store
 /saved_songs/*
 /venv
