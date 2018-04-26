@@ -33,7 +33,7 @@ class Song(object):
 		with open(self.title + "_" + dt + ".mid", "wb") as output_file:
 			self.midi.writeFile(output_file)
 
-	def create(self):
+	def test(self):
 		self.midi.addTempo(0, 0, self.tempo)
 		struct = Structure(self.key, self.timesig, self.measures)
 		print '\n' 
