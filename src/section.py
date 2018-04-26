@@ -3,10 +3,13 @@ import random
 from chord import Chord
 
 class Section(object):
-		
+	
+	durs = [
+		.25, .5, .75, 1, 1, 2, 2, 3, 4, 4, 4, 6, 8
+	] # by measure
+
 	def __init__(self, key, timesig, measures, startOnRoot):
-		self._chordDurations = [.25, .5, .75, 1, 1, 2, 2, 3, 4, 4, 4, 6, 8] # by measure
-		
+	
 		self.key = key
 		self.timesig = timesig
 		self.measures = measures
@@ -33,10 +36,10 @@ class Section(object):
 		
 		# add a random chord duration to chordDurMap until full
 		while full < self.measures:
-			dur = random.choice(self._chordDurations)
+			dur = random.choice(Section.durs)
 			if dur > (self.measures - full):
 				while dur > (self.measures - full):
-					dur = random.choice(self._chordDurations)
+					dur = random.choice(Section.durs)
 			full += dur
 			self.chordDurMap.append(dur)
 

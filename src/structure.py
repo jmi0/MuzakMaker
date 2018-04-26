@@ -4,13 +4,15 @@ from section import Section
 
 class Structure(object):
 	
-	def __init__(self, key, timesig, measures):
-		self.sectionDurs = [1, 2, 2, 3, 4, 4, 4, 6, 8, 8, 9, 10, 12, 16]
-		self.rootFirst = [True, False]		
+	durs = [
+		1, 2, 2, 3, 4, 4, 4, 6, 8, 8, 9, 10, 12, 16
+	]
 
+	def __init__(self, key, timesig, measures):
+	
+		self.rootFirst = [True, False]		
 		self.structure = []
 		self.sections = []
-
 		self.key = key
 		self.timesig = timesig
 		self.measures = measures
@@ -25,10 +27,10 @@ class Structure(object):
 		dur = self.uniqueMeasures + 1		
 
 		while full < self.uniqueMeasures:
-			dur = random.choice(self.sectionDurs)
+			dur = random.choice(Structure.durs)
 			if dur > (self.uniqueMeasures - full):
 				while dur > (self.uniqueMeasures - full):
-					dur = random.choice(self.sectionDurs)
+					dur = random.choice(Structure.durs)
 			full += dur
 			self.structure.append(dur)
 	
@@ -61,7 +63,6 @@ class Structure(object):
 		return self.measures, self.uniqueMeasures, self.structure
 	
 	def getSections(self):
-		#print self.sections
 		return self.sections
 	
 	def getLength(self):

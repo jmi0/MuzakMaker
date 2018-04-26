@@ -2,14 +2,14 @@ import random
 
 class Melody(object):
 
-        def __init__(self):
+	def __init__(self):
 		#TODO
-                pass
+    pass
 
-        def getBlock(self):
-                #TODO
-                pass
+	def getBlock(self):
+		#TODO
+		pass
 
-        def __buildBlock(self):
-        	#TODO
+	def __buildBlock(self):
+		#TODO
 		pass

@@ -3,8 +3,9 @@ import random
 
 class Chord(object):
 	
+	triad = [2, 4]
+	
 	def __init__(self, key, root, notes):
-		self.triad = [2, 4]
 		self.intervals = [3, 5, 6]
 		self.key = key
 		self.root = root
@@ -16,15 +17,12 @@ class Chord(object):
 		self.voices.append(self.root)
 		for i in range(0, self.notes - 1):
 			if i < 2:
-				#print self.root
-				#print self.key[self.key.index(self.root) + self.triad[i]]
-				self.voices.append(self.key[self.key.index(self.root) + self.triad[i]])
+				self.voices.append(self.key[self.key.index(self.root) + Chord.triad[i]])
 			else:
 				interval = random.choice(self.intervals)
 				self.voices.append(self.key[self.key.index(self.root) + interval])
 				self.intervals.remove(interval)
 				
-	
 	def getVoices(self):
 		return self.voices
 

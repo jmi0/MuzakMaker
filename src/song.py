@@ -57,25 +57,15 @@ class Song(object):
 						dur = self.timesig*2
 					else:
 						dur = chordDurs[j]
-						self.midi.addNote(
-							0, 
-							0, 
-							chords[j].getVoices()[k], 
-							currentbeat, 
-							dur, 
-							self.__getRandomVol()
-						)
+						note = chords[j].getVoices()[k]
+						vol = self.__getRandomVol()
+						self.midi.addNote(0, 0, note, currentbeat, dur, vol)
 				
-					# add bass notes
+					# add bass notes on whole notes
 					if float(currentbeat).is_integer():
-						self.midi.addNote(
-							0, 
-							0, 
-							self.key[self.key.index(random.choice(chords[j].getVoices())) - 7], 
-							currentbeat, 
-							chordDurs[j], 
-							self.__getRandomVol()
-						)
+						note = self.key[self.key.index(random.choice(chords[j].getVoices())) - 7]
+						vol = self.__getRandomVol()
+						self.midi.addNote(0, 0, note, currentbeat, chordDurs[j], vol)
 				
 				currentbeat += chordDurs[j]
 			
