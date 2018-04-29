@@ -10,7 +10,7 @@ class Song():
     self.timesig = songDict['time_signature']
     self.measures = songDict['measures']
     self.sections = songDict['sections']
-    self.beats = self.measures * self.timesig # one beat = 1/16
+    self.beats = self.measures * self.timesig
     self.tempo = songDict['tempo']
     self.key = songDict['key']
     self.midi = songDict['mh']
