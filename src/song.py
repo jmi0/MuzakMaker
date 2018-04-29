@@ -37,24 +37,13 @@ class Song():
     with open("song_" + dt + ".mid", "wb") as output_file:
       self.midi.writeFile(output_file)
 
-    
-  def __getKeyRange(self, choice):
-    rangeSet = len(self.key) / 4
-    if choice == 'mid':
-      return self.key[rangeSet+20:rangeSet+40]
-    elif choice == 'low':
-      return self.key[1:rangeSet*2]
-    else:
-      return self.key[rangeSet*2:rangeSet*3]
-
 
   def test(self):
     self.midi.addTempo(0, 0, self.tempo)
+    
     while self.__beatsRemaining() > 0:
-      #if self.currentBeat % self.timesig == 0:
       # new measure
-      scale = self.__getKeyRange('mid')
-      measure = Measure(scale, self.timesig, self.random)
+      measure = Measure(self.key, self.timesig, self.random)
       for i in range(0, len(measure.chords)):
         chord = measure.chords[i]
           

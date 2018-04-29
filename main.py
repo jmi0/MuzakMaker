@@ -14,7 +14,7 @@ from src.createScale import stayInKey
 ##################################################
 
 midi = MIDIFile(1, adjust_origin=True)
-scale = stayInKey(3)
+scale = stayInKey(0)
 
 songDict = {
   'tempo': 100, 
