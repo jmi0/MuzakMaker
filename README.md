@@ -1,4 +1,4 @@
-# RandomMuzakMaker
+# RandomMuzakGenerator
 
 ## An experimental program for writing muzak.
 
