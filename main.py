@@ -14,14 +14,14 @@ from src.createScale import stayInKey
 ##################################################
 
 midi = MIDIFile(1, adjust_origin=True)
-scale = stayInKey(2)
+scale = stayInKey(3)
 
 songDict = {
-  'tempo': 120, 
+  'tempo': 100, 
   'key': scale, 
   'time_signature': 4, 
   'sections': 4,
-  'measures': 40,
+  'measures': 60,
   'mh': midi,
   'random': random
 }
