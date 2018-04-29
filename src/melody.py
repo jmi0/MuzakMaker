@@ -1,15 +1,11 @@
-import random
 
-class Melody(object):
+class Melody():
 
-	def __init__(self):
-		#TODO
+  def __init__(self, measure):
+    #TODO
+    self.__create()
+
+  def __create(self):
+    #TODO
     pass
 
-	def getBlock(self):
-		#TODO
-		pass
-
-	def __buildBlock(self):
-		#TODO
-		pass

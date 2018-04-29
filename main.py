@@ -1,26 +1,30 @@
+import random
 from midiutil.MidiFile import MIDIFile
 from src.song import Song
 from src.createScale import stayInKey
 
-midi = MIDIFile(1, adjust_origin=True)
+##################################################
+# 16 beats = 1 quarter note
+# timesig = */4
+##################################################
+# Song: 
+#   tempo, key, time signature(beats only), 
+#   numbner of unique sections, number of measures, 
+#   midi handler
+##################################################
 
-"""
-Song: 
-	title, tempo, key(0-12), time signature(beats only), 
-	# of measures, vocabulary (for future), midi handler
-"""
+midi = MIDIFile(1, adjust_origin=True)
+scale = stayInKey(2)
 
 songDict = {
-	'title': 'shmuzak', 
-	'tempo': 60, 
-	'key': stayInKey(1), 
-	'time_signature': 4, 
-	'measures': 200, 
-	'sections': 8, 
-	'genre': 'test', 
-	'mh': midi
+  'tempo': 120, 
+  'key': scale, 
+  'time_signature': 4, 
+  'sections': 4,
+  'measures': 40,
+  'mh': midi,
+  'random': random
 }
 
 song = Song(songDict)
-
 song.test()

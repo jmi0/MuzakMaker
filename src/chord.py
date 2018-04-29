@@ -1,34 +1,37 @@
-import random
-#from createScale import stayInKey
+from note import Note
 
-class Chord(object):
-	
-	triad = [2, 4]
-	
-	def __init__(self, key, root, notes):
-		self.intervals = [3, 5, 6]
-		self.key = key
-		self.root = root
-		self.notes = notes # 1 through 4
-		self.voices = []
-		self.__setVoices()	
+class Chord(Note):
+  
+  triad = [2, 4]
+  intervals = [3, 5, 6]
 
-	def __setVoices(self):
-		self.voices.append(self.root)
-		for i in range(0, self.notes - 1):
-			if i < 2:
-				self.voices.append(self.key[self.key.index(self.root) + Chord.triad[i]])
-			else:
-				interval = random.choice(self.intervals)
-				self.voices.append(self.key[self.key.index(self.root) + interval])
-				self.intervals.remove(interval)
-				
-	def getVoices(self):
-		return self.voices
+  def __init__(self, beats, random, root, scale, start):
+    Note.__init__(self, beats, random)
+    self.root = root
+    self.scale = scale
+    self.start = start
+    self.voices = []
+    self.__setPoly()
+    self.__setVoices()    
 
+  def __getRandomHarmony(self):
+    return self.random.choice(Chord.intervals)
 
-# test
-#chord = Chord(stayInKey(0), 0, 4)
-#print chord.getVoices()
+  def __setPoly(self):
+    self.poly = self.random.randint(1, 4)
 
+  def __setVoices(self):
+    
+    for i in range(0, self.poly): 
+      
+      note = Note(self.beats, self.random)
+      index = self.scale.index(self.root) 
+      
+      if i < 2:
+        note.setRoot(self.scale[index + Chord.triad[i]])
+      else:
+        note.setRoot(self.scale[index + self.__getRandomHarmony()])
+      
+      self.voices.append(note)
 
+      
