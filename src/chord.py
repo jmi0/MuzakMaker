@@ -1,4 +1,4 @@
-from note import Note
+from src.note import Note
 
 class Chord(Note):
   

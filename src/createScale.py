@@ -1,8 +1,7 @@
 def stayInKey(root):
   full_scale = []
   pattern = [2, 2, 1, 2, 2, 2, 1]
-  i = 0
-  j = 0
+  i = j = 0
   full_scale.append(root)
     
   while i < 127:

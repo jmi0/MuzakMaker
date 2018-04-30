@@ -1,7 +1,7 @@
 import random
 import datetime
 import time
-from measure import Measure
+from src.measure import Measure
 
 class Song():
         

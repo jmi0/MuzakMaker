@@ -1,4 +1,4 @@
-from chord import Chord
+from src.chord import Chord
 
 class Measure():
   
