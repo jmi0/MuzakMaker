@@ -1,8 +1,9 @@
+import sys
 import random
-from midiutil.MidiFile import MIDIFile
 from src.song import Song
 from src.createScale import stayInKey
 
+  
 ##################################################
 # 16 beats = 1 quarter note
 # timesig = */4
@@ -13,18 +14,33 @@ from src.createScale import stayInKey
 #   midi handler
 ##################################################
 
-midi = MIDIFile(1, adjust_origin=True)
-scale = stayInKey(0)
 
-songDict = {
-  'tempo': 100, 
-  'key': scale, 
-  'time_signature': 4, 
-  'sections': 4,
-  'measures': 60,
-  'mh': midi,
-  'random': random
-}
+def main():
+  
+  midi = MIDIFile(1, adjust_origin=True)
+  scale = stayInKey(0)
 
-song = Song(songDict)
-song.test()
+  songDict = {
+    'tempo': 100, 
+    'key': scale, 
+    'time_signature': 4, 
+    'sections': 4,
+    'measures': 60,
+    'mh': midi,
+    'random': random
+  }
+
+  song = Song(songDict)
+  song.test()
+
+
+try:
+  from midiutil.MidiFile import MIDIFile
+except ImportError:
+  print('\nYou must install the python library MIDIUtil')
+  print('Go to: https://pypi.org/project/MIDIUtil/\n')
+  sys.exit(0)
+
+
+if __name__ == "__main__":
+  main()
