@@ -45,9 +45,7 @@ class Song():
     while self.__beatsRemaining() > 0:
       # new measure
       measure = Measure(self.key, self.timesig, self.random)
-      for i in range(0, len(measure.chords)):
-        chord = measure.chords[i]
-          
+      for chord in measure.chords:
         for voice in chord.voices:
           midiPos = self.currentBeat
           duration = chord.beats+1 # add a trailing sustain
