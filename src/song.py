@@ -37,7 +37,8 @@ class Song():
     filename = "song_" + dt + ".mid"
     with open(filename, "wb") as output_file:
       self.midi.writeFile(output_file)
-    
+      output_file.close()
+   
     print('\nSong created:\n\t\t' + filename + '\n')
 
   def test(self):
