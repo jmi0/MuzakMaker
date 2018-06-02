@@ -37,8 +37,8 @@ def main():
 try:
   from midiutil.MidiFile import MIDIFile
 except ImportError:
-  print('\nYou must install the python library MIDIUtil')
-  print('Go to: https://pypi.org/project/MIDIUtil/\n')
+  print('\nMissing requirements.')
+  print('run:\n\tpip install -r requirements.txt\n')
   sys.exit(0)
 
 
