@@ -34,10 +34,11 @@ class Song():
   def __write(self):
     ts = time.time()
     dt = datetime.datetime.fromtimestamp(ts).strftime('%Y%m%d%H%M%S')
-    with open("song_" + dt + ".mid", "wb") as output_file:
+    filename = "song_" + dt + ".mid"
+    with open(filename, "wb") as output_file:
       self.midi.writeFile(output_file)
     
-    print('\nSong created!\n')
+    print('\nSong created:\n\t\t' + filename + '\n')
 
   def test(self):
     self.midi.addTempo(0, 0, self.tempo)
