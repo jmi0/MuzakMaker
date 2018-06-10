@@ -14,8 +14,9 @@ class Measure():
 
   def __setRange(self):
     # grab a single octave for root notes
-    start = (len(self.scale)/4)*2
-    self.range = self.scale[start:start+7]
+    start = int((len(self.scale)/4)*2)
+    end = start + 7
+    self.range = self.scale[start:end]
 
   def __beatsRemaining(self):
     return self.beats - self.currentBeat
